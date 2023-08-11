@@ -3,7 +3,6 @@ import { Schema, model } from "mongoose";
 interface User {
   username: string
   password: string
-  permissions: number
 }
 
 const userSchema = new Schema<User>({
