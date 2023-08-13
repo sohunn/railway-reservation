@@ -7,18 +7,18 @@ interface Booking {
 }
 
 const bookingSchema = new Schema<Booking>({
-  userID: {
-    type: Schema.Types.ObjectId,
-    required: true,
-    ref: 'Users'
-  },
-  trainID: {
-    type: Schema.Types.ObjectId,
-    required: true,
-    ref: 'Trains'
-  },
-  seatsBooked: { type: Number, required: true }
-})
+	userID: {
+		type: Schema.Types.ObjectId,
+		required: true,
+		ref: "Users"
+	},
+	trainID: {
+		type: Schema.Types.ObjectId,
+		required: true,
+		ref: "Trains"
+	},
+	seatsBooked: { type: Number, required: true }
+});
 
-const bookings = model<Booking>('Bookings', bookingSchema)
-export default bookings
+const bookings = model<Booking>("Bookings", bookingSchema);
+export default bookings;
