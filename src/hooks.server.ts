@@ -12,7 +12,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 	const jwt = event.cookies.get("token");
 	if (jwt) {
 		try {
-			const decoded = verify(jwt, JWT_SECRET) as string;
+			const decoded = verify(jwt, JWT_SECRET) as App.User;
+			// maybe get user from the db to ensure event.locals.user is definitely existing
 			event.locals.user = decoded; // serialize as required
 		} catch (err) {
 			// jwt has been tampered or has expired, clear the cookie so they sign in again

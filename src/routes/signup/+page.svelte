@@ -18,9 +18,9 @@
 </form>
 
 {#if form?.usernameMissing}
-    <p>Username cannot be empty</p>
+    <p>Username field cannot be empty</p>
 {:else if form?.passwordMissing}
-    <p>Password cannot be empty</p>
+    <p>Password field cannot be empty</p>
 {:else if form?.passwordLength}
     <p>Passwords must be 8 characters or longer</p>
 {:else if form?.userExisting}
