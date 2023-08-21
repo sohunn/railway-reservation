@@ -6,10 +6,7 @@ import { sign } from "jsonwebtoken";
 import { JWT_SECRET } from "$env/static/private";
 
 export const actions = {
-    default: async ({ request, locals, cookies }) => {
-        // already logged in, redirect back home
-        if (locals.user) throw redirect(303, "/");
-
+    default: async ({ request, cookies }) => {
         const data = await request.formData();
         const username = data.get("username");
         const password = data.get("password");

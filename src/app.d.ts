@@ -16,6 +16,17 @@ declare global {
             exp: number
         }
     }
+
+    namespace CustomTypes {
+        interface addTrainRequestBody {
+            name: string
+            capacity: number
+            from: string
+            to: string
+            duration: number
+            price: number
+        }
+    }
 }
 
 export { };
