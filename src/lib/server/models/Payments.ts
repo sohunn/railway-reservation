@@ -7,21 +7,21 @@ interface Payment {
 }
 
 const PaymentSchema = new Schema<Payment>({
-    userID: {
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: "Users"
-    },
-    bookingID: {
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: "Bookings"
-    },
-    discountID: {
-        type: Schema.Types.ObjectId,
-        required: false,
-        ref: "Discounts"
-    }
+	userID: {
+		type: Schema.Types.ObjectId,
+		required: true,
+		ref: "Users"
+	},
+	bookingID: {
+		type: Schema.Types.ObjectId,
+		required: true,
+		ref: "Bookings"
+	},
+	discountID: {
+		type: Schema.Types.ObjectId,
+		required: false,
+		ref: "Discounts"
+	}
 });
 
 const payments = model<Payment>("Payments", PaymentSchema);

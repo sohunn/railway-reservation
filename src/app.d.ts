@@ -4,13 +4,15 @@ declare global {
     namespace App {
         // interface Error {}
         interface Locals {
-            user?: User
+            user?: {
+                username: string
+            }
         }
 
         // interface PageData {}
         // interface Platform {}
 
-        interface User {
+        interface JWTPayload {
             id: string
             iat: number
             exp: number

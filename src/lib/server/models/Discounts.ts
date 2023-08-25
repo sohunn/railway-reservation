@@ -6,15 +6,15 @@ interface Discount {
 }
 
 const discountSchema = new Schema<Discount>({
-    bookingID: {
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: "Bookings"
-    },
-    amount: {
-        type: Schema.Types.Number,
-        required: true
-    }
+	bookingID: {
+		type: Schema.Types.ObjectId,
+		required: true,
+		ref: "Bookings"
+	},
+	amount: {
+		type: Schema.Types.Number,
+		required: true
+	}
 });
 
 const discounts = model<Discount>("Discounts", discountSchema);

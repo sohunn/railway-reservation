@@ -10,12 +10,12 @@ interface Train {
 }
 
 const trainSchema = new Schema<Train>({
-    name: { type: String, required: true },
-    seatingCapacity: { type: Number, required: true },
-    fromDestination: { type: String, required: true },
-    toDestination: { type: String, required: true },
-    duration: { type: Number, required: true },
-    price: { type: Number, required: true }
+	name: { type: String, required: true },
+	seatingCapacity: { type: Number, required: true },
+	fromDestination: { type: String, required: true },
+	toDestination: { type: String, required: true },
+	duration: { type: Number, required: true },
+	price: { type: Number, required: true }
 });
 
 const trains = model<Train>("Trains", trainSchema);
