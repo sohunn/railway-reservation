@@ -1,8 +1,8 @@
 <script lang="ts">
-    export let username: string | undefined;
+    import { page } from "$app/stores";
 </script>
 
-{#if username}
+{#if $page.data.username}
     <h1>Show all trains</h1>
 {:else}
     <h1>ask them to login</h1>
