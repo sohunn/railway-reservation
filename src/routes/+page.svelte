@@ -1,9 +1,11 @@
 <script lang="ts">
-    import { page } from "$app/stores";
+  import type { PageServerData } from "./$types";
+
+  export let data: PageServerData;
 </script>
 
-{#if $page.data.username}
-    <h1>Show all trains</h1>
+{#if data.trains}
+  <p>show all the trains</p>
 {:else}
-    <h1>ask them to login</h1>
+  <p>ask them to login to check</p>
 {/if}
