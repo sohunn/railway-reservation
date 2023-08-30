@@ -7,6 +7,7 @@ interface Train {
   toDestination: string;
   duration: number;
   price: number;
+  seatsOccupied: number;
 }
 
 const trainSchema = new Schema<Train>({
