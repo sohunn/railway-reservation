@@ -15,7 +15,7 @@
     <input type="password" name="password" />
   </label>
 
-  <button>Login up</button>
+  <button>Login</button>
 </form>
 
 {#if form?.usernameMissing}

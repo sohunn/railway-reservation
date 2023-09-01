@@ -10,11 +10,10 @@ export const load: PageServerLoad = async ({ locals }) => {
   }));
 
   for (const train of allTrains) {
-    const seatsOccupied = await bookings
-      .countDocuments({ trainID: train._id })
-      .lean();
+    const trainBookings = await bookings.find({ trainID: train._id }).lean();
+
     Object.defineProperty(train, "seatsOccupied", {
-      value: seatsOccupied,
+      value: trainBookings.reduce((prev, curr) => prev + curr.seatsBooked, 0),
       enumerable: true,
     });
   }

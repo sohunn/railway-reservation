@@ -24,7 +24,10 @@ export const handle: Handle = async ({ event, resolve }) => {
       if (!user) {
         event.cookies.delete("token", { path: "/" });
       } else {
-        event.locals.user = { username: user.username };
+        event.locals.user = {
+          username: user.username,
+          id: decoded.id,
+        };
         if (
           isProtectedRoute(event.url.pathname) &&
           !constants.admins.includes(decoded.id)

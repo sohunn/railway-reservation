@@ -1,4 +1,4 @@
-import { error } from "@sveltejs/kit";
+import { error, json } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
 import trains from "$lib/server/models/Trains";
 
@@ -24,5 +24,5 @@ export const POST: RequestHandler = async ({ request }) => {
     price,
   });
 
-  return new Response(JSON.stringify({ success: true }), { status: 201 });
+  return json({ success: true });
 };

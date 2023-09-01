@@ -12,6 +12,9 @@
     const response = await fetch("/api/addtrain", {
       method: "POST",
       body: JSON.stringify({ name, capacity, from, to, duration, price }),
+      headers: {
+        "content-type": "application/json",
+      },
     });
 
     const data = await response.json();
@@ -37,32 +40,62 @@
   <form action="?/addtrain" method="post">
     <label>
       Name
-      <input type="text" name="name" bind:value={name} id="" />
+      <input
+        class="text-black"
+        type="text"
+        name="name"
+        bind:value={name}
+        id=""
+      />
     </label>
 
     <label>
       Seating Capacity
-      <input type="number" name="capacity" bind:value={capacity} id="" />
+      <input
+        class="text-black"
+        type="number"
+        name="capacity"
+        bind:value={capacity}
+        id=""
+      />
     </label>
 
     <label>
       From
-      <input type="text" name="from" bind:value={from} id="" />
+      <input
+        class="text-black"
+        type="text"
+        name="from"
+        bind:value={from}
+        id=""
+      />
     </label>
 
     <label>
       To
-      <input type="text" name="to" bind:value={to} id="" />
+      <input class="text-black" type="text" name="to" bind:value={to} id="" />
     </label>
 
     <label>
       Duration
-      <input type="number" name="duration" bind:value={duration} id="" />
+      <input
+        class="text-black"
+        type="number"
+        name="duration"
+        bind:value={duration}
+        id=""
+      />
     </label>
 
     <label>
       Price
-      <input type="number" name="price" bind:value={price} id="" />
+      <input
+        class="text-black"
+        type="number"
+        name="price"
+        bind:value={price}
+        id=""
+      />
     </label>
   </form>
   <button on:click={addTrain}>Submit</button>
