@@ -1,8 +1,10 @@
 import { Schema, model } from "mongoose";
+import type { Booking } from "./Bookings";
 
 interface User {
   username: string;
   password: string;
+  bookings: (Booking & { _id: string })[];
 }
 
 const userSchema = new Schema<User>(

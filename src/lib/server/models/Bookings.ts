@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-interface Booking {
+export interface Booking {
   userID: Schema.Types.ObjectId;
   trainID: Schema.Types.ObjectId;
   seatsBooked: number;
