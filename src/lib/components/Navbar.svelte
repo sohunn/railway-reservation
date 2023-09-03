@@ -1,6 +1,19 @@
 <script lang="ts">
+  import { invalidateAll } from "$app/navigation";
+  import { showAlert } from "$lib/utils";
+
   export let username: string | undefined;
   export let isAdmin: boolean | undefined;
+
+  const handleLogout = async () => {
+    const response = await fetch("/api/logout", { method: "POST" });
+    const data = await response.json();
+
+    if (!response.ok) showAlert(data.message);
+    else if (data.success) {
+      invalidateAll();
+    }
+  };
 </script>
 
 <div class="mb-2">
@@ -23,6 +36,9 @@
           >My Bookings</a
         >
       </li>
+      <button on:click={handleLogout} class="mr-5 text-xl hover:text-black"
+        >Logout</button
+      >
       {#if isAdmin}
         <li class="list-none mr-5 text-xl">
           <a class="no-underline text-white hover:text-black" href="/adminui"
