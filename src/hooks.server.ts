@@ -27,6 +27,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         event.locals.user = {
           username: user.username,
           id: decoded.id,
+          isAdmin: constants.admins.includes(user._id.toString()),
         };
         if (
           isProtectedRoute(event.url.pathname) &&

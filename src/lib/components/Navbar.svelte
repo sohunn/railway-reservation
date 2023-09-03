@@ -1,5 +1,6 @@
 <script lang="ts">
   export let username: string | undefined;
+  export let isAdmin: boolean | undefined;
 </script>
 
 <div class="mb-2">
@@ -22,6 +23,13 @@
           >My Bookings</a
         >
       </li>
+      {#if isAdmin}
+        <li class="list-none mr-5 text-xl">
+          <a class="no-underline text-white hover:text-black" href="/adminui"
+            >Admin Panel</a
+          >
+        </li>
+      {/if}
     {/if}
     <!-- <li class="list-none text-xl flex ml-auto font-bold">
       <a class="no-underline text-black text-2xl" href="/">FindMyBogey</a>
