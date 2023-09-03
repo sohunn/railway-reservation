@@ -35,13 +35,15 @@
   };
 </script>
 
-<div>
-  <h1>Add Train</h1>
-  <form action="?/addtrain" method="post">
-    <label>
-      Name
+<div class="flex flex-col items-center">
+  <form
+    class="flex flex-col items-center text-black bg-orange-200 w-1/3 m-auto mt-8 rounded-md"
+  >
+    <h1 class="mt-15 font-bold text-center">Add Train</h1>
+    <label class="mb-4">
+      <strong>Name:</strong>
       <input
-        class="text-black"
+        class="ml-2 mt-2 rounded-md"
         type="text"
         name="name"
         bind:value={name}
@@ -49,10 +51,10 @@
       />
     </label>
 
-    <label>
-      Seating Capacity
+    <label class="mb-4">
+      <strong>Seating Capacity:</strong>
       <input
-        class="text-black"
+        class="ml-2 mt-2 rounded-md"
         type="number"
         name="capacity"
         bind:value={capacity}
@@ -60,10 +62,10 @@
       />
     </label>
 
-    <label>
-      From
+    <label class="mb-4">
+      <strong>From:</strong>
       <input
-        class="text-black"
+        class="ml-2 mt-2 rounded-md"
         type="text"
         name="from"
         bind:value={from}
@@ -71,15 +73,21 @@
       />
     </label>
 
-    <label>
-      To
-      <input class="text-black" type="text" name="to" bind:value={to} id="" />
+    <label class="mb-4">
+      <strong>To:</strong>
+      <input
+        class="ml-2 mt-2 rounded-md"
+        type="text"
+        name="to"
+        bind:value={to}
+        id=""
+      />
     </label>
 
-    <label>
-      Duration
+    <label class="mb-4">
+      <strong>Duration:</strong>
       <input
-        class="text-black"
+        class="ml-2 mt-2 rounded-md"
         type="number"
         name="duration"
         bind:value={duration}
@@ -87,10 +95,10 @@
       />
     </label>
 
-    <label>
-      Price
+    <label class="mb-4">
+      <strong>Price:</strong>
       <input
-        class="text-black"
+        class="ml-2 mt-2 rounded-md"
         type="number"
         name="price"
         bind:value={price}
@@ -98,5 +106,8 @@
       />
     </label>
   </form>
-  <button on:click={addTrain}>Submit</button>
+  <button
+    class="mb-2 mt-2 rounded-md p-2 bg-white text-black hover:bg-blue-500 w-1/23"
+    on:click={addTrain}>Add Train</button
+  >
 </div>

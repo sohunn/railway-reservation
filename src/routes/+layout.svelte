@@ -7,6 +7,6 @@
   export let data: LayoutServerData;
 </script>
 
-<Navbar username={data.username} />
+<Navbar username={data.username} isAdmin={data.isAdmin} />
 <Alert />
 <slot />

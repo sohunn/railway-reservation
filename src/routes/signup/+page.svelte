@@ -1,30 +1,36 @@
 <script lang="ts">
+  import { showAlert } from "$lib/utils";
   import type { ActionData } from "./$types";
   export let form: ActionData;
+
+  if (form?.msg) showAlert(form.msg);
 </script>
 
-<form method="POST">
-  <label>
-    Username
-    <input type="text" name="username" />
+<form
+  method="POST"
+  class="flex flex-col items-center text-black bg-orange-200 w-1/3 m-auto mt-20 rounded-md"
+>
+  <label class="mb-4">
+    <strong>Username:</strong>
+    <input
+      placeholder="Enter a username"
+      class="ml-2 mt-2 rounded-md"
+      type="text"
+      name="username"
+    />
   </label>
 
-  <label>
-    Password
-    <input type="password" name="password" />
+  <label class="mb-4">
+    <strong>Password:</strong>
+    <input
+      placeholder="Enter a password"
+      class="ml-2 rounded-md"
+      type="password"
+      name="password"
+    />
   </label>
 
-  <button>Sign up</button>
+  <button class="mb-2 rounded-md p-2 bg-black text-white hover:bg-blue-500"
+    >Sign up</button
+  >
 </form>
-
-{#if form?.usernameMissing}
-  <p>Username field cannot be empty</p>
-{:else if form?.passwordMissing}
-  <p>Password field cannot be empty</p>
-{:else if form?.passwordLength}
-  <p>Passwords must be 8 characters or longer</p>
-{:else if form?.userExisting}
-  <p>
-    That user already exists. Do you wish to <a href="/login">login</a> instead?
-  </p>
-{/if}

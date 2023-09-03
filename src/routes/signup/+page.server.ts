@@ -11,13 +11,15 @@ export const actions = {
     const username = data.get("username");
     const password = data.get("password");
 
-    if (!username) return fail(400, { usernameMissing: true });
-    if (!password) return fail(400, { passwordMissing: true });
+    if (!username) return fail(400, { msg: "Username field cannot be empty" });
+    if (!password) return fail(400, { msg: "Password field cannot be empty" });
 
     const existingUser = await users.findOne({ username }).lean().exec();
-    if (existingUser) return fail(400, { userExisting: true });
+    if (existingUser)
+      return fail(400, { msg: "That username is already taken" });
 
-    if (password.length < 8) return fail(400, { passwordLength: true });
+    if (password.length < 8)
+      return fail(400, { msg: "Passwords must be 8 characters or longer" });
 
     const hashedPassword = await hash(password as string, 10);
     const createdUser = await users.create({
