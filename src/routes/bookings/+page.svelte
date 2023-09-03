@@ -24,7 +24,7 @@
     {/each}
   </div>
 {:else}
-  <p>
+  <p class="text-center mt-20">
     You do not have any bookings. <a class="underline" href="/">Create one</a> to
     get started?
   </p>

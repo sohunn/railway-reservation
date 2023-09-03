@@ -28,7 +28,7 @@
     </li> -->
     {#if username}
       <li class="list-none mr-5 text-xl ml-auto">
-        <a class="no-underline text-white hover:text-black" href="/profile"
+        <a class="no-underline text-white hover:text-black" href="/bookings"
           >Welcome {username}</a
         >
       </li>

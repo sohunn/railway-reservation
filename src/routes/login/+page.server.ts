@@ -11,14 +11,15 @@ export const actions = {
     const username = data.get("username");
     const password = data.get("password");
 
-    if (!username) return fail(400, { usernameMissing: true });
-    if (!password) return fail(400, { passwordMissing: true });
+    if (!username) return fail(400, { msg: "Username field cannot be empty" });
+    if (!password) return fail(400, { msg: "Password field cannot be empty" });
 
     const existingUser = await users.findOne({ username }).lean().exec();
-    if (!existingUser) return fail(400, { noUserExists: true });
+    if (!existingUser)
+      return fail(400, { msg: "Invalid username or password" });
 
     const matcher = await compare(password as string, existingUser.password);
-    if (!matcher) return fail(400, { incorrectPass: true });
+    if (!matcher) return fail(400, { msg: "Invalid username or password" });
 
     const jwt = sign({ id: existingUser._id }, JWT_SECRET, {
       expiresIn: "2 days",
